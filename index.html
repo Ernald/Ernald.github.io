@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ernald Zykaj — Software Developer &amp; Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--bg2:#111833;--card:#151d3b;--line:#253058;--text:#e8ecf7;--muted:#9aa6c7;--accent:#f2c84b;--accent2:#5ad1b0;--accent3:#7aa2ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,16,32,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;letter-spacing:-.02em;font-size:1.12rem;text-decoration:none}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500}
+.navlinks a:hover{color:var(--text)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font:600 .78rem Inter;padding:6px 11px;cursor:pointer}
+.lang button.on{background:var(--accent);color:#1a1400}
+@media(max-width:760px){.navlinks a{display:none}}
+
+header.hero{padding:80px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-220px;right:-160px;width:640px;height:640px;background:radial-gradient(circle,rgba(242,200,75,.15),transparent 65%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-260px;left:-200px;width:560px;height:560px;background:radial-gradient(circle,rgba(122,162,255,.12),transparent 65%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--accent2);border:1px solid rgba(90,209,176,.35);background:rgba(90,209,176,.08);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2)}
+.name{font-family:"JetBrains Mono",monospace;color:var(--muted);font-size:.95rem;margin-bottom:10px}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.08;letter-spacing:-.035em;font-weight:800;max-width:17ch;position:relative}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);font-size:1.1rem;max-width:62ch;margin:20px 0 30px;position:relative}
+.cta{display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:10px;font-size:.95rem;cursor:pointer;border:0;font-family:inherit}
+.btn.primary{background:var(--accent);color:#1a1400}
+.btn.ghost{border:1px solid var(--line);color:var(--text);background:transparent}
+.btn:hover{transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px;position:relative}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat b{display:block;font-size:1.6rem;letter-spacing:-.02em;color:var(--accent)}
+.stat span{color:var(--muted);font-size:.85rem}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+section{padding:72px 0;border-top:1px solid var(--line)}
+.kicker{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.03em;margin:8px 0 12px}
+.sub{color:var(--muted);max-width:64ch;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:border-color .2s;display:flex;flex-direction:column}
+.card:hover{border-color:#3a4a85}
+.ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(242,200,75,.12);margin-bottom:14px;font-size:1.2rem}
+.card h3{font-size:1.06rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.93rem}
+.card .meta{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--accent3);margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px}
+.tag{font-size:.74rem;padding:4px 9px;border-radius:6px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+.featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:26px;background:linear-gradient(135deg,#1a2350,#151d3b)}
+@media(max-width:760px){.featured{grid-template-columns:1fr}}
+.featured h3{font-size:1.4rem}
+.featured ul{color:var(--muted);font-size:.92rem;padding-left:18px;display:grid;gap:6px;align-content:start}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.skillgrp h4{font-size:.88rem;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:6px 11px;border-radius:8px;background:var(--bg2);border:1px solid var(--line);font-size:.84rem}
+
+.timeline{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:32px;margin-top:10px}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:-31px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.tl small{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.76rem}
+.tl h3{font-size:1.08rem;margin:2px 0 2px}
+.tl .co{color:var(--accent3);font-size:.9rem;font-weight:600}
+.tl ul{padding-left:18px;margin-top:8px;color:var(--muted);font-size:.92rem;display:grid;gap:3px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.edu{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.edu small{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.75rem}
+.edu b{display:block;margin:2px 0}
+.edu span{color:var(--muted);font-size:.88rem}
+.stack{display:grid;gap:12px}
+
+.contact{background:linear-gradient(135deg,#1a2350,#121a3a);border:1px solid var(--line);border-radius:22px;padding:42px;display:grid;grid-template-columns:1.1fr 1fr;gap:34px}
+@media(max-width:800px){.contact{grid-template-columns:1fr;padding:26px}}
+.clist{display:grid;gap:10px;margin-top:20px}
+.crow{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.18);text-decoration:none}
+.crow:hover{border-color:#3a4a85}
+.crow small{display:block;color:var(--muted);font-size:.74rem}
+.crow b{font-weight:600;font-size:.95rem;word-break:break-all}
+form{display:grid;gap:10px;align-content:start}
+input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font:inherit;font-size:.95rem}
+textarea{min-height:110px;resize:vertical}
+.note{font-size:.85rem;color:var(--accent2);min-height:1.2em}
+footer{padding:34px 0;color:var(--muted);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#">Ernald Zykaj<span>.</span></a>
+  <div class="navlinks">
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#work" data-i18n="nav_work">Projects</a>
+    <a href="#exp" data-i18n="nav_exp">Experience</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <div class="lang"><button id="bEN" class="on">EN</button><button id="bSQ">AL</button></div>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="badge"><i></i><span data-i18n="badge">Available now · Remote or on-site · Fier, Albania (CET)</span></div>
+  <div class="name">Ernald Zykaj — Software Developer · Data Analyst</div>
+  <h1 data-i18n-html="h1">I build software, automation and dashboards that <em>save time and money</em>.</h1>
+  <p class="lead" data-i18n="lead">Full-stack Java developer and data analyst with 5+ years in tech. I've built Spring Boot and Angular web apps, automated energy-trading workflows with scrapers and APIs, and delivered Power BI reporting for a retail chain in Albania and Kosovo.</p>
+  <div class="cta">
+    <a class="btn primary" href="#contact" data-i18n="cta1">Hire me / Get a quote</a>
+    <a class="btn ghost" href="https://github.com/Ernald">GitHub ↗</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>5+</b><span data-i18n="s1">years in tech</span></div>
+    <div class="stat"><b>3</b><span data-i18n="s2">areas: software, automation, BI</span></div>
+    <div class="stat"><b>2023–25</b><span data-i18n="s3">freelancing on Fiverr</span></div>
+    <div class="stat"><b>C1</b><span data-i18n="s4">English · Italian B1</span></div>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap">
+  <div class="kicker" data-i18n="k_serv">What I can do for you</div>
+  <h2 data-i18n="h_serv">Services</h2>
+  <p class="sub" data-i18n="sub_serv">For companies hiring and for businesses that need a problem solved fast — as an employee, contractor or freelancer.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">💻</div>
+      <h3 data-i18n="sv1_t">Web apps &amp; APIs</h3>
+      <p data-i18n="sv1_p">Full-stack applications with Java / Spring Boot, Angular and MySQL — REST APIs, admin panels, email and payment integrations, Docker deployment with SSL.</p></div>
+    <div class="card"><div class="ic">🤖</div>
+      <h3 data-i18n="sv2_t">Automation &amp; integrations</h3>
+      <p data-i18n="sv2_p">Web scrapers, API integrations and bots that collect data, place orders and run repetitive work automatically, with monitoring.</p></div>
+    <div class="card"><div class="ic">📊</div>
+      <h3 data-i18n="sv3_t">Power BI &amp; Excel reporting</h3>
+      <p data-i18n="sv3_p">Dashboards for sales, stock and supply chain; Power Query pipelines that replace hours of manual Excel work.</p></div>
+    <div class="card"><div class="ic">🛒</div>
+      <h3 data-i18n="sv4_t">Online shops &amp; websites</h3>
+      <p data-i18n="sv4_p">Online shops for Instagram businesses through my platform Tezga Ime, or custom, SEO-friendly business websites.</p></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="kicker" data-i18n="k_work">Selected work</div>
+  <h2 data-i18n="h_work">Projects</h2>
+  <p class="sub" data-i18n="sub_work">A mix of products I built myself and systems I delivered for employers and clients.</p>
+  <div class="grid">
+    <div class="card featured">
+      <div>
+        <div class="meta" data-i18n="f_meta">MY OWN PRODUCT · LIVE</div>
+        <h3>Tezga Ime — tezgaime.al</h3>
+        <p data-i18n="f_p">A SaaS platform that gives Instagram-based sellers in Albania and Kosovo their own online shop. Designed, built, deployed and operated by me on a Linux VPS — including onboarding and sales outreach.</p>
+        <div class="tags"><span class="tag">SaaS</span><span class="tag">E-commerce</span><span class="tag">Linux VPS</span><span class="tag">Product &amp; sales</span></div>
+      </div>
+      <ul>
+        <li data-i18n="f_1">End-to-end ownership: product, code, hosting, customers</li>
+        <li data-i18n="f_2">Multi-shop platform serving real businesses</li>
+        <li data-i18n="f_3">Marketing to sellers via Instagram outreach</li>
+      </ul>
+    </div>
+    <div class="card"><div class="meta">ReNRGY</div>
+      <h3 data-i18n="p1_t">Automated energy-trading bidding</h3>
+      <p data-i18n="p1_p">Scrapers and API integrations that collect market data and automate bidding, plus systems to place orders and monitor transactions.</p>
+      <div class="tags"><span class="tag">Automation</span><span class="tag">Web scraping</span><span class="tag">REST APIs</span></div></div>
+    <div class="card"><div class="meta">Rossmann &amp; Lala</div>
+      <h3 data-i18n="p2_t">Retail supply-chain BI suite</h3>
+      <p data-i18n="p2_p">Power BI dashboards for Out-of-Stock, supplier Fill Rate, store order fulfillment and daily warehouse stock — built on RELEX and Business Central data.</p>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">RELEX</span></div></div>
+    <div class="card"><div class="meta">InterMedia</div>
+      <h3 data-i18n="p3_t">Accommodation booking web platform</h3>
+      <p data-i18n="p3_p">Backend and UI work on a Spring Boot platform: REST APIs, automated emails, responsive Thymeleaf / Bootstrap pages; improved performance and booking visibility.</p>
+      <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">Thymeleaf</span></div></div>
+    <div class="card"><div class="meta">iKub Academy</div>
+      <h3 data-i18n="p4_t">SharePoint finance management system</h3>
+      <p data-i18n="p4_p">Finance management in SharePoint Online with SPFx web parts, a financial dashboard, Azure AD authentication and an approval workflow for submissions.</p>
+      <div class="tags"><span class="tag">SharePoint</span><span class="tag">SPFx</span><span class="tag">Azure AD</span><span class="tag">C#</span></div></div>
+    <div class="card"><div class="meta">Fiverr</div>
+      <h3 data-i18n="p5_t">Client web &amp; mobile apps</h3>
+      <p data-i18n="p5_p">Custom web and mobile apps for international clients: APIs, database design, hosting, payment gateways, web audits and bug fixing.</p>
+      <div class="tags"><span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">Docker</span></div></div>
+    <div class="card"><div class="meta">TeamSpired · Virtual Albania</div>
+      <h3 data-i18n="p6_t">Catalog &amp; offer automation</h3>
+      <p data-i18n="p6_p">Robots that automated data processing and catalog management for offers, coupons and brochures published on Shopfully across several countries.</p>
+      <div class="tags"><span class="tag">RPA</span><span class="tag">Data processing</span><span class="tag">Photoshop</span></div></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="kicker" data-i18n="k_sk">Toolbox</div>
+  <h2 data-i18n="h_sk">Skills</h2>
+  <div class="skills" style="margin-top:26px">
+    <div class="skillgrp"><h4 data-i18n="g1">Software development</h4><div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Spring MVC / REST</span><span class="chip">Hibernate / JDBC</span><span class="chip">Angular</span><span class="chip">JavaScript</span><span class="chip">C#</span><span class="chip">C++</span><span class="chip">HTML / CSS</span></div></div>
+    <div class="skillgrp"><h4 data-i18n="g2">Data &amp; BI</h4><div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Advanced Excel</span><span class="chip">SQL</span><span class="chip">MySQL</span></div></div>
+    <div class="skillgrp"><h4 data-i18n="g3">Tools &amp; platforms</h4><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">SharePoint / SPFx</span><span class="chip">Azure AD</span><span class="chip">Linux VPS</span><span class="chip">Business Central</span><span class="chip">RELEX</span></div></div>
+    <div class="skillgrp"><h4 data-i18n="g4">Languages &amp; soft skills</h4><div class="chips"><span class="chip" data-i18n="l1">Albanian — native</span><span class="chip" data-i18n="l2">English — C1</span><span class="chip" data-i18n="l3">Italian — B1</span><span class="chip" data-i18n="l4">Agile / Scrum</span><span class="chip" data-i18n="l5">Mentoring &amp; code review</span></div></div>
+  </div>
+</div></section>
+
+<section id="exp"><div class="wrap">
+  <div class="kicker" data-i18n="k_exp">Experience</div>
+  <h2 data-i18n="h_exp">Where I've worked</h2>
+  <div class="timeline" style="margin-top:26px">
+    <div class="tl"><small data-i18n="d1">May 2026 – Oct 2026</small><h3>Data Analyst</h3><div class="co">Rossmann &amp; Lala</div>
+      <ul><li data-i18n="e1a">Built Power BI dashboards for Out-of-Stock, Fill Rate and warehouse stock reporting.</li><li data-i18n="e1b">Analyzed replenishment and supply-chain data from RELEX and Business Central.</li><li data-i18n="e1c">Automated Excel / Power Query reports for stores in Albania and Kosovo.</li></ul></div>
+    <div class="tl"><small data-i18n="d2">Sep 2024 – Feb 2026</small><h3 data-i18n="t2">Automation Developer — Energy Trading</h3><div class="co">ReNRGY</div>
+      <ul><li data-i18n="e2a">Developed automation programs that streamlined trading processes.</li><li data-i18n="e2b">Built web scrapers and API integrations to collect data and automate bidding.</li><li data-i18n="e2c">Designed systems for placing orders and monitoring transactions.</li></ul></div>
+    <div class="tl"><small data-i18n="d3">Jan 2024 – Aug 2024</small><h3>Full Stack Developer | Java Developer</h3><div class="co">InterMedia</div>
+      <ul><li data-i18n="e3a">Backend systems with Java, Spring Boot, MySQL, Spring MVC and Spring Mail.</li><li data-i18n="e3b">Responsive interfaces with Thymeleaf, Bootstrap, JavaScript and Ajax; REST APIs with Spring REST.</li><li data-i18n="e3c">Agile sprints, mentoring Java interns and code reviews.</li></ul></div>
+    <div class="tl"><small>2023 – 2025</small><h3 data-i18n="t4">Freelance Full-Stack Developer</h3><div class="co">Fiverr</div>
+      <ul><li data-i18n="e4a">Custom web and mobile apps, REST APIs and SEO-optimized sites for clients.</li><li data-i18n="e4b">Database design, hosting, Docker + SSL deployment, email and payment automation.</li></ul></div>
+    <div class="tl"><small data-i18n="d5">Apr 2022 – Jan 2024</small><h3>Web Content Editor | Data Analyst</h3><div class="co">TeamSpired · Virtual Albania</div>
+      <ul><li data-i18n="e5a">Processed offers, coupons and catalogs for the Shopfully platform across several countries.</li><li data-i18n="e5b">Automated data processing and catalog management with robots.</li></ul></div>
+    <div class="tl"><small data-i18n="d6">Feb 2021 – Oct 2021</small><h3>Technical Support Specialist</h3><div class="co">ETC — Elkos Trading Center</div>
+      <ul><li data-i18n="e6a">Technical support for clients, warranties and price optimization.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="edu"><div class="wrap">
+  <div class="two">
+    <div>
+      <div class="kicker" data-i18n="k_edu">Education</div>
+      <h2 data-i18n="h_edu">Studies</h2>
+      <div class="stack">
+        <div class="edu"><small>2017 – 2020</small><b data-i18n="ed1">Bachelor in Computer Science</b><span>University of Vlora "Ismail Qemali"</span></div>
+        <div class="edu"><small>2020</small><b data-i18n="ed2">Erasmus exchange (Bachelor)</b><span>Bialystok University of Technology, Poland</span></div>
+        <div class="edu"><small>2021</small><b data-i18n="ed3">Erasmus exchange (Master)</b><span>Calisia University, Kalisz, Poland</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="kicker" data-i18n="k_cert">Training</div>
+      <h2 data-i18n="h_cert">Certifications</h2>
+      <div class="stack">
+        <div class="edu"><small>May 2023 – Feb 2024</small><b>Software Development Academy (SDA)</b><span data-i18n="c1">Java (basic &amp; advanced), design patterns, testing, SQL / JDBC / Hibernate, Spring, frontend</span></div>
+        <div class="edu"><small>Feb 2021 – May 2021</small><b>iKub Academy — SharePoint &amp; C#</b><span data-i18n="c2">Internship: SharePoint Online finance management system</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <div>
+      <div class="kicker" data-i18n="k_ct">Let's work together</div>
+      <h2 data-i18n="h_ct">Hiring, or need something built?</h2>
+      <p class="sub" style="margin-bottom:0" data-i18n="sub_ct">Full-time, part-time, contract or a one-off project. I usually reply within 24 hours.</p>
+      <div class="clist">
+        <a class="crow" href="mailto:ernaldzykaj@gmail.com">✉️<div><small>Email</small><b>ernaldzykaj@gmail.com</b></div></a>
+        <a class="crow" href="https://wa.me/355698205347">💬<div><small>WhatsApp / Phone</small><b>+355 69 820 5347</b></div></a>
+        <a class="crow" href="https://github.com/Ernald">🐙<div><small>GitHub</small><b>github.com/Ernald</b></div></a>
+      </div>
+    </div>
+    <form id="f">
+      <input id="fn" required data-i18n-ph="ph_name" placeholder="Your name / company">
+      <input id="fe" required data-i18n-ph="ph_email" placeholder="Email or phone">
+      <select id="fs">
+        <option data-i18n="o1">Job offer (full-time / part-time)</option>
+        <option data-i18n="o2">Web app / API</option>
+        <option data-i18n="o3">Automation / scraping</option>
+        <option data-i18n="o4">Power BI / Excel</option>
+        <option data-i18n="o5">Online shop / website</option>
+      </select>
+      <textarea id="fm" required data-i18n-ph="ph_msg" placeholder="What do you need?"></textarea>
+      <button class="btn primary" type="submit" data-i18n="send">Copy message</button>
+      <div class="note" id="note"></div>
+    </form>
+  </div>
+</div></section>
+
+<footer>© 2026 Ernald Zykaj · Software Developer &amp; Data Analyst · Fier, Albania</footer>
+
+<script>
+const SQ={
+nav_services:"Shërbime",nav_work:"Projekte",nav_exp:"Përvoja",nav_contact:"Kontakt",
+badge:"I disponueshëm tani · Online ose në zyrë · Fier, Shqipëri",
+h1:"Ndërtoj software, automatizime dhe dashboard-e që <em>kursejnë kohë dhe para</em>.",
+lead:"Zhvillues full-stack në Java dhe analist të dhënash me mbi 5 vjet në teknologji. Kam ndërtuar aplikacione web me Spring Boot dhe Angular, kam automatizuar procese tregtimi energjie me scraper-a dhe API, dhe kam krijuar raportimin Power BI për një rrjet dyqanesh në Shqipëri dhe Kosovë.",
+cta1:"Më punëso / Kërko ofertë",
+s1:"vjet në teknologji",s2:"fusha: software, automatizim, BI",s3:"freelance në Fiverr",s4:"Anglisht · Italisht B1",
+k_serv:"Si mund t'ju ndihmoj",h_serv:"Shërbime",sub_serv:"Për kompani që punësojnë dhe për biznese që duan një problem të zgjidhur shpejt — si punonjës, kontraktor ose freelancer.",
+sv1_t:"Aplikacione web & API",sv1_p:"Aplikacione full-stack me Java / Spring Boot, Angular dhe MySQL — REST API, panele administrimi, integrime emaili dhe pagesash, publikim me Docker dhe SSL.",
+sv2_t:"Automatizime & integrime",sv2_p:"Scraper-a, integrime API dhe robotë që mbledhin të dhëna, vendosin porosi dhe kryejnë punët e përsëritura automatikisht, me monitorim.",
+sv3_t:"Raportim Power BI & Excel",sv3_p:"Dashboard-e për shitje, stok dhe zinxhir furnizimi; Power Query që zëvendëson orë pune manuale në Excel.",
+sv4_t:"Dyqane online & website",sv4_p:"Dyqane online për bizneset në Instagram me platformën time Tezga Ime, ose website biznesi të personalizuara dhe të optimizuara për SEO.",
+k_work:"Punë të zgjedhura",h_work:"Projekte",sub_work:"Produkte që i kam ndërtuar vetë dhe sisteme që kam realizuar për punëdhënës dhe klientë.",
+f_meta:"PRODUKTI IM · LIVE",f_p:"Platformë SaaS që u jep shitësve në Instagram në Shqipëri dhe Kosovë dyqanin e tyre online. E projektuar, ndërtuar, publikuar dhe menaxhuar nga unë në një server Linux — përfshirë regjistrimin e klientëve dhe shitjen.",
+f_1:"Përgjegjësi e plotë: produkti, kodi, hostimi, klientët",f_2:"Platformë me shumë dyqane për biznese reale",f_3:"Marketing te shitësit përmes Instagram-it",
+p1_t:"Automatizim i ofertave në tregtimin e energjisë",p1_p:"Scraper-a dhe integrime API që mbledhin të dhëna tregu dhe automatizojnë ofertat, plus sisteme për vendosjen e porosive dhe monitorimin e transaksioneve.",
+p2_t:"Paketë BI për zinxhirin e furnizimit",p2_p:"Dashboard-e Power BI për mungesat në stok, fill rate të furnitorëve, plotësimin e porosive të dyqaneve dhe stokun ditor në magazina — mbi të dhënat e RELEX dhe Business Central.",
+p3_t:"Platformë web për rezervime akomodimi",p3_p:"Backend dhe UI në një platformë Spring Boot: REST API, emaile automatike, faqe responsive me Thymeleaf / Bootstrap; përmirësim i performancës dhe dukshmërisë së rezervimeve.",
+p4_t:"Sistem menaxhimi financiar në SharePoint",p4_p:"Menaxhim financiar në SharePoint Online me web part-e SPFx, dashboard financiar, autentikim me Azure AD dhe proces miratimi.",
+p5_t:"Aplikacione web & mobile për klientë",p5_p:"Aplikacione web dhe mobile për klientë ndërkombëtarë: API, projektim databazash, hostim, pagesa online, auditim dhe rregullim gabimesh.",
+p6_t:"Automatizim katalogësh & ofertash",p6_p:"Robotë që automatizuan përpunimin e të dhënave dhe menaxhimin e katalogëve, kuponëve dhe broshurave në Shopfully për disa vende.",
+k_sk:"Mjetet",h_sk:"Aftësi",g1:"Zhvillim software",g2:"Të dhëna & BI",g3:"Mjete & platforma",g4:"Gjuhë & aftësi të buta",
+l1:"Shqip — amtare",l2:"Anglisht — C1",l3:"Italisht — B1",l4:"Agile / Scrum",l5:"Mentorim & code review",
+k_exp:"Përvoja",h_exp:"Ku kam punuar",
+d1:"Maj 2026 – Tet 2026",e1a:"Ndërtova dashboard-e Power BI për mungesat në stok, fill rate dhe stokun e magazinave.",e1b:"Analizova të dhënat e rifurnizimit dhe zinxhirit të furnizimit nga RELEX dhe Business Central.",e1c:"Automatizova raporte në Excel / Power Query për dyqanet në Shqipëri dhe Kosovë.",
+d2:"Sht 2024 – Shk 2026",t2:"Zhvillues automatizimesh — Tregtim energjie",e2a:"Zhvillova programe automatizimi që thjeshtuan proceset e tregtimit.",e2b:"Ndërtova scraper-a dhe integrime API për mbledhjen e të dhënave dhe automatizimin e ofertave.",e2c:"Projektova sisteme për vendosjen e porosive dhe monitorimin e transaksioneve.",
+d3:"Jan 2024 – Gus 2024",e3a:"Sisteme backend me Java, Spring Boot, MySQL, Spring MVC dhe Spring Mail.",e3b:"Ndërfaqe responsive me Thymeleaf, Bootstrap, JavaScript dhe Ajax; REST API me Spring REST.",e3c:"Sprint-e Agile, mentorim i praktikantëve Java dhe code review.",
+t4:"Zhvillues Full-Stack Freelance",e4a:"Aplikacione web dhe mobile, REST API dhe faqe të optimizuara për SEO për klientë.",e4b:"Projektim databazash, hostim, publikim me Docker + SSL, automatizim emailesh dhe pagesash.",
+d5:"Pri 2022 – Jan 2024",e5a:"Përpunim ofertash, kuponësh dhe katalogësh për platformën Shopfully në disa vende.",e5b:"Automatizim i përpunimit të të dhënave dhe katalogëve me robotë.",
+d6:"Shk 2021 – Tet 2021",e6a:"Suport teknik për klientët, garanci dhe optimizim çmimesh.",
+k_edu:"Arsimi",h_edu:"Studimet",ed1:"Bachelor në Shkenca Kompjuterike",ed2:"Shkëmbim Erasmus (Bachelor)",ed3:"Shkëmbim Erasmus (Master)",
+k_cert:"Trajnime",h_cert:"Certifikime",c1:"Java (bazë & e avancuar), design patterns, testim, SQL / JDBC / Hibernate, Spring, frontend",c2:"Praktikë: sistem menaxhimi financiar në SharePoint Online",
+k_ct:"Të punojmë bashkë",h_ct:"Po punësoni apo ju duhet diçka e ndërtuar?",sub_ct:"Me kohë të plotë, të pjesshme, kontratë ose projekt i vetëm. Zakonisht përgjigjem brenda 24 orësh.",
+ph_name:"Emri / kompania",ph_email:"Email ose telefon",ph_msg:"Çfarë ju duhet?",
+o1:"Ofertë pune (kohë e plotë / e pjesshme)",o2:"Aplikacion web / API",o3:"Automatizim / scraping",o4:"Power BI / Excel",o5:"Dyqan online / website",
+send:"Kopjo mesazhin"};
+const EN={};
+document.querySelectorAll("[data-i18n]").forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll("[data-i18n-html]").forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+document.querySelectorAll("[data-i18n-ph]").forEach(e=>EN[e.dataset.i18nPh]=e.placeholder);
+let lang="en";
+function setLang(l){
+  lang=l;const D=l==="sq"?SQ:EN;document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(e=>{const v=D[e.dataset.i18n];if(v)e.textContent=v});
+  document.querySelectorAll("[data-i18n-html]").forEach(e=>{const v=D[e.dataset.i18nHtml];if(v)e.innerHTML=v});
+  document.querySelectorAll("[data-i18n-ph]").forEach(e=>{const v=D[e.dataset.i18nPh];if(v)e.placeholder=v});
+  bEN.classList.toggle("on",l==="en");bSQ.classList.toggle("on",l==="sq");
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+bEN.onclick=()=>setLang("en");bSQ.onclick=()=>setLang("sq");
+try{if(localStorage.getItem("lang")==="sq")setLang("sq")}catch(e){}
+document.getElementById("f").addEventListener("submit",async ev=>{
+  ev.preventDefault();
+  const txt=`Hi Ernald,\n\nTopic: ${fs.value}\nFrom: ${fn.value} (${fe.value})\n\n${fm.value}`;
+  let ok=false;try{await navigator.clipboard.writeText(txt);ok=true}catch(e){}
+  note.textContent=lang==="sq"
+    ?(ok?"Mesazhi u kopjua — ngjiteni në email ose WhatsApp: ernaldzykaj@gmail.com · +355 69 820 5347":"Ju lutem dërgojeni në: ernaldzykaj@gmail.com · +355 69 820 5347")
+    :(ok?"Message copied — paste it into an email or WhatsApp: ernaldzykaj@gmail.com · +355 69 820 5347":"Please send it to: ernaldzykaj@gmail.com · +355 69 820 5347");
+});
+</script>
+</body>
+</html>
